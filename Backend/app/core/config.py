@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     API_V1_PREFIX: str = "/api/v1"
 
     # Database connection string
-    # This will come from your Supabase/Neon connection string
+    # This comes from your Supabase connection string
     DATABASE_URL: str
 
     class Config:
