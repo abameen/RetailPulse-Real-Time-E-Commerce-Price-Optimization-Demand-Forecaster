@@ -2,3 +2,5 @@ sessionmaker
 sqlalchemy
 pydantic-settings
 psycopg2-binary
+fastapi
+uvicorn
