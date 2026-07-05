@@ -1,10 +1,18 @@
 from fastapi import FastAPI
-from .api.api import router as api_router
 
-app = FastAPI()
-app.include_router(api_router, prefix="/api")
+from app.api.api import api_router
+from app.db.base import Base
+from app.db.database import engine
+
+app = FastAPI(title="RetailPulse")
+
+# Creates tables based on your SQLAlchemy models if they don't already exist.
+# Fine for now -- swap for Alembic migrations once the schema stabilizes.
+Base.metadata.create_all(bind=engine)
+
+app.include_router(api_router)
 
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=8000, reload=True)
+@app.get("/")
+def root():
+    return {"message": "RetailPulse API is running"}
