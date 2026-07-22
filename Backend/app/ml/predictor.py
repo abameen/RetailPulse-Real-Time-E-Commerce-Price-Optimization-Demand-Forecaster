@@ -3,23 +3,6 @@ from pathlib import Path
 import joblib
 
 MODEL_PATH = Path(__file__).parent / "artifacts" / "lgbm_demand_forecaster.pkl"
-FEATURE_COLUMNS = [
-    "lag_1_price",
-    "lag_3_price",
-    "lag_7_price",
-    "lag_1_units_sold",
-    "lag_3_units_sold",
-    "lag_7_units_sold",
-    "rolling_7_mean_price",
-    "rolling_7_std_price",
-    "rolling_7_mean_units_sold",
-    "rolling_7_std_units_sold",
-    "day_of_week",
-    "month",
-    "is_weekend",
-    "category_price_index",
-]
-
 _model = None
 
 
@@ -32,6 +15,22 @@ def _load_model():
 
 def predict(features: dict) -> float:
     model = _load_model()
-    values = [features[name] for name in FEATURE_COLUMNS]
-    prediction = model.predict([values])[0]
+
+    # Determine expected feature order from the model if possible
+    try:
+        expected = list(model.feature_name_)
+    except Exception:
+        # fallback to a small sensible default ordered list
+        expected = list(features.keys())
+
+    # Build the input vector by pulling values from features with defaults
+    row = []
+    for name in expected:
+        if name in features:
+            row.append(features[name])
+        else:
+            # default numeric replacement
+            row.append(0.0)
+
+    prediction = model.predict([row])[0]
     return float(prediction)
