@@ -7,13 +7,29 @@ Run from Backend/ with: python -m scripts.backfill_sales_history
 
 import pandas as pd
 
-from app.db.database import SessionLocal  # ADJUST if your session factory has a different name
+from app.db.database import SessionLocal, engine  # ADJUST if your session factory has a different name
+from app.db.base import Base
+from sqlalchemy import inspect
 from app.models.sales_history import SalesHistory
+from app.models.product import Product
+
 
 CSV_PATH = "../data/processed/olist_phase2_features.csv"  # ADJUST path relative to where you run this
 
 
 def run():
+    # ensure tables exist in the target database before inserting
+    # If a previous table exists with an incompatible schema (e.g. product_id int),
+    # drop and recreate to match the current model definitions.
+    inspector = inspect(engine)
+    if "sales_history" in inspector.get_table_names():
+        try:
+            SalesHistory.__table__.drop(bind=engine)
+        except Exception:
+            # ignore drop failures and attempt create_all anyway
+            pass
+
+    Base.metadata.create_all(bind=engine)
     df = pd.read_csv(CSV_PATH)
     df["order_date"] = pd.to_datetime(df["order_date"]).dt.date
 
