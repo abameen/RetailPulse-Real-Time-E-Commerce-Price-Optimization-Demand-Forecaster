@@ -26,6 +26,7 @@ class ProductResponse(ProductBase):
     id: int
     created_at: datetime
     updated_at: datetime
+    category_price_index: float | None = None
 
     model_config = ConfigDict(from_attributes=True)
     
