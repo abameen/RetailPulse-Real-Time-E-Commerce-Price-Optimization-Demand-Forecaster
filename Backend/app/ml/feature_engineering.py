@@ -50,7 +50,7 @@ def _category_median_price(db: Session, category: str, target_date: date, lookba
     return float(np.median(prices)) if prices else None
 
 
-def build_features(db: Session, product_id: str, target_date: date, lookback_days: int = 30) -> dict:
+def build_features(db: Session, product_id: str, target_date: date, lookback_days: int = 30, simulated_price: float | None = None) -> dict:
     """Build feature dict matching the model's expected feature names.
 
     This function pulls recent history for `product_id` and computes lags,
@@ -66,7 +66,7 @@ def build_features(db: Session, product_id: str, target_date: date, lookback_day
 
     # Basic last-observed values
     units_sold = hist["units_sold"].iloc[-1]
-    avg_price = hist["avg_price"].iloc[-1]
+    avg_price = float(simulated_price) if simulated_price is not None else hist["avg_price"].iloc[-1]
     avg_freight = hist.get("avg_freight").iloc[-1] if "avg_freight" in hist else None
     avg_review_score = hist.get("avg_review_score").iloc[-1] if "avg_review_score" in hist else None
     avg_payment_value = hist.get("avg_payment_value").iloc[-1] if "avg_payment_value" in hist else None

@@ -6,6 +6,7 @@ from pydantic import BaseModel
 class ForecastRequest(BaseModel):
     product_id: str
     target_date: date
+    simulated_price: float | None = None
 
 
 class ForecastResponse(BaseModel):

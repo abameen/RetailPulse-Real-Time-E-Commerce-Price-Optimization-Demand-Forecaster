@@ -15,3 +15,4 @@ class SalesHistory(Base):
     avg_review_score = Column(Float, nullable=True)
     avg_payment_value = Column(Float, nullable=True)
     unique_customers = Column(Integer, nullable=True)
+    

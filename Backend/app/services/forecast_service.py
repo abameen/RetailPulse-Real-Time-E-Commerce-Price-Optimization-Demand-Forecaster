@@ -9,7 +9,12 @@ import joblib
 
 def forecast_product(db: Session, request: ForecastRequest) -> ForecastResponse:
     # Build feature vector (may raise ValueError for insufficient history)
-    features = build_features(db, request.product_id, request.target_date)
+    features = build_features(
+        db,
+        request.product_id,
+        request.target_date,
+        simulated_price=request.simulated_price,
+    )
 
     try:
         predicted_units = predict(features)
