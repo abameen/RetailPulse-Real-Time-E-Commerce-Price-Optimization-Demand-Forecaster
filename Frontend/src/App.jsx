@@ -54,14 +54,14 @@
 // export default App
 
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import InventoryDashboard from './pages/InventoryDashboard'
 import ProductDetail from './pages/ProductDetail'
 import ModelPerformance from './pages/ModelPerformance'
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <header className="border-b bg-white shadow-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <div className="text-lg font-semibold">RetailPulse</div>
@@ -80,8 +80,9 @@ function App() {
           <Route path="/model-performance" element={<ModelPerformance />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </>
   )
 }
 
 export default App
+
