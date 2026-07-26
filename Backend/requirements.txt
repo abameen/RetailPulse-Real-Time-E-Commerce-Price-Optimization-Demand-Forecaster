@@ -1,6 +1,11 @@
-sessionmaker
-sqlalchemy
-pydantic-settings
-psycopg2-binary
 fastapi
-uvicorn
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+python-dotenv
+pandas
+numpy
+lightgbm
+joblib
