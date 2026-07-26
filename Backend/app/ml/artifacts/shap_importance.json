@@ -1,0 +1,126 @@
+[
+  {
+    "feature": "units_roll_mean_7",
+    "importance": 0.15918711395712906
+  },
+  {
+    "feature": "product_category_name",
+    "importance": 0.06747760529378759
+  },
+  {
+    "feature": "units_roll_std_7",
+    "importance": 0.035981459353557455
+  },
+  {
+    "feature": "unique_customers",
+    "importance": 0.03475409662624336
+  },
+  {
+    "feature": "is_black_friday_window",
+    "importance": 0.024434646579980717
+  },
+  {
+    "feature": "units_sold",
+    "importance": 0.022124898029748423
+  },
+  {
+    "feature": "avg_freight",
+    "importance": 0.02030561420138991
+  },
+  {
+    "feature": "day_of_month",
+    "importance": 0.014364720907042099
+  },
+  {
+    "feature": "units_change_3d",
+    "importance": 0.012760482018573386
+  },
+  {
+    "feature": "avg_payment_value",
+    "importance": 0.012452031294864602
+  },
+  {
+    "feature": "category_price_index",
+    "importance": 0.011518049140532083
+  },
+  {
+    "feature": "price_change_3d",
+    "importance": 0.010993565417220758
+  },
+  {
+    "feature": "units_change_1d",
+    "importance": 0.00913464230194768
+  },
+  {
+    "feature": "price_change_7d",
+    "importance": 0.00802156631514604
+  },
+  {
+    "feature": "units_change_7d",
+    "importance": 0.007088856077392737
+  },
+  {
+    "feature": "day_of_week",
+    "importance": 0.007077288956522911
+  },
+  {
+    "feature": "units_sold_lag_1",
+    "importance": 0.006750452761194238
+  },
+  {
+    "feature": "price_change_1d",
+    "importance": 0.006648080031018339
+  },
+  {
+    "feature": "avg_price",
+    "importance": 0.006060973213600258
+  },
+  {
+    "feature": "week_of_year",
+    "importance": 0.005775336518775794
+  },
+  {
+    "feature": "units_sold_lag_7",
+    "importance": 0.004018954972985234
+  },
+  {
+    "feature": "avg_price_lag_1",
+    "importance": 0.003927514770440854
+  },
+  {
+    "feature": "price_roll_std_7",
+    "importance": 0.003743758643398528
+  },
+  {
+    "feature": "is_november",
+    "importance": 0.0028242691110433697
+  },
+  {
+    "feature": "price_roll_mean_7",
+    "importance": 0.0025094729115496843
+  },
+  {
+    "feature": "avg_price_lag_3",
+    "importance": 0.0022745153280977846
+  },
+  {
+    "feature": "avg_review_score",
+    "importance": 0.002225161014992733
+  },
+  {
+    "feature": "avg_price_lag_7",
+    "importance": 0.002179228861147762
+  },
+  {
+    "feature": "units_sold_lag_3",
+    "importance": 0.002114329265635016
+  },
+  {
+    "feature": "month",
+    "importance": 0.001345555334774342
+  },
+  {
+    "feature": "is_weekend",
+    "importance": 0.0
+  }
+]
