@@ -390,12 +390,15 @@ export default function ProductDetail() {
           )}
           {!predictLoading && !predictError && prediction !== null && (
             <p className="text-lg">
-              Predicted units sold:{' '}
-              <span className="font-semibold text-slate-900">
-                {prediction.toFixed(2)}
-              </span>
+               Predicted units sold:{' '}
+               <span className="font-semibold text-slate-900">
+                ≈ {Math.round(prediction)} units
+            </span>{' '}
+            <span className="text-sm text-slate-500">
+                (model estimate: {prediction.toFixed(2)})
+            </span>
             </p>
-          )}
+        )}
         </div>
       </div>
     </div>
